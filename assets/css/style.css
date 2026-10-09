@@ -262,7 +262,7 @@ a.card:hover,.card.hov:hover{text-decoration:none;transform:translateY(-3px);bor
 .empty{text-align:center;color:var(--muted);padding:40px}
 
 /* ---------- 响应式 ---------- */
-@media (max-width:1240px){
+@media (max-width:1300px){
   .nav{display:none;position:absolute;top:66px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:10px 16px 16px;border-bottom:1px solid var(--line);box-shadow:var(--sh)}
   .nav.open{display:flex}
   .nav a.opt-hide{display:block}
@@ -320,3 +320,60 @@ a.card:hover,.card.hov:hover{text-decoration:none;transform:translateY(-3px);bor
 .split{grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
 @media (max-width:900px){.split{grid-template-columns:1fr}.split #post{position:static!important}}
 @media (max-width:600px){.kpi:last-child{grid-column:1/-1}}
+
+/* ---------- 赵云涛律师团队 · 全球合伙人 ---------- */
+.nav a.gold{color:#8a6110;font-weight:700;background:#fbf1d9}
+.nav a.gold.on{background:#f3e2b0;color:#6b4a08}
+@media (min-width:1301px){.hdr .wrap>.btn{margin-left:8px}}
+.lexsec{background:radial-gradient(900px 400px at 85% 0%,rgba(226,191,92,.16),transparent 60%),linear-gradient(170deg,#07182c 0%,#0d2540 60%,#102c4d 100%);color:#fff;padding:88px 0 64px;position:relative;overflow:hidden}
+.kpis+.lexsec{margin-top:-60px;padding-top:120px}
+.kpis{z-index:4}
+.lexhead{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
+.lexbrand{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700;letter-spacing:1px;color:#e8d18f}
+.lexbrand img{width:48px;height:48px;border-radius:10px;object-fit:cover;background:#fff}
+.lexbrand small{color:#93acc9;font-weight:500;letter-spacing:2px}
+.lexsec h2{font-size:40px;line-height:1.25;margin:18px 0 14px}
+.lexsec h2 em{font-style:normal;background:linear-gradient(90deg,#f3d98a,#e2bf5c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lexsec p{color:#c4d2e3;font-size:16px;margin:0}
+.lexsec p b{color:#fff}
+.globe{width:100%;height:auto}
+.globe .land circle{fill:rgba(147,172,201,.28)}
+.globe .lines path{fill:none;stroke:rgba(226,191,92,.38);stroke-width:.9}
+.globe .dots circle{fill:#e2bf5c}
+.globe .dots circle.p{animation:pulse 3s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.globe text{fill:#c4d2e3;font-size:10.5px;text-anchor:middle}
+.globe text.hub{fill:#fff;font-size:14px;font-weight:700;text-anchor:start}
+@media (prefers-reduced-motion:reduce){.globe .dots circle.p{animation:none}}
+.lexstats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border-top:1px solid rgba(226,191,92,.25);border-bottom:1px solid rgba(226,191,92,.25)}
+.lexstats div{padding:22px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.lexstats div:last-child{border-right:0}
+.lexstats b{display:block;font-size:38px;color:#f3d98a;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.lexstats b small{font-size:15px;color:#e8d18f;margin-left:2px}
+.lexstats span{font-size:13.5px;color:#93acc9}
+.lexpillars{margin-top:32px}
+.lp{background:rgba(255,255,255,.04);border:1px solid rgba(226,191,92,.22);border-radius:16px;padding:24px}
+.lp .ico{background:rgba(226,191,92,.14)}
+.lp h3{margin:0 0 8px;font-size:20px;color:#fff}
+.lp p{font-size:14.5px;margin-bottom:12px}
+.lp .tag{background:rgba(255,255,255,.08);color:#dbe6f3}
+.lexsrc{font-size:12px!important;color:#6f86a3!important;margin-top:18px!important;text-align:right}
+.center img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.center .noimg{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg,#0d2540,#1d4f91);color:#e8d18f;font-weight:700;letter-spacing:4px;font-size:18px}
+.teamcard{display:flex;justify-content:space-between;gap:24px;align-items:center;background:linear-gradient(120deg,#07182c,#12345f);color:#fff;border-radius:18px;padding:30px 32px;margin-bottom:28px;border:1px solid rgba(226,191,92,.3)}
+.teamcard h2{margin:6px 0 8px;font-size:28px}
+.teamcard p{margin:0;color:#c4d2e3}
+.pending{display:inline-block;margin-top:10px!important;font-size:12.5px;border:1px dashed #c3b48a;color:#c3a85a!important;padding:3px 10px;border-radius:6px}
+.modal .pending{color:#8a7440!important}
+@media (max-width:900px){
+  .lexhead{grid-template-columns:1fr}
+  .lexsec h2{font-size:32px}
+  .lexstats{grid-template-columns:repeat(2,1fr)}
+  .lexstats div:nth-child(2){border-right:0}
+  .lexstats div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
+  .teamcard{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:600px){
+  .lexsec h2{font-size:28px}
+  .lexstats b{font-size:30px}
+  .hdr .wrap>.btn{display:none}
+}
