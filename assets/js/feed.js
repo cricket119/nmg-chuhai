@@ -3,14 +3,14 @@
  * 字段：alerts[].lv = red(紧急) | orange(重要) | yellow(关注) | info(机遇/提示)；due = 截止/生效日（可空）
  */
 window.FEED = {
-  updated: "2026-10-10",
+  updated: "2026-10-16",
   alerts: [
-    { id: "a-20261110-us-cn", d: "2026-10-10", due: "2026-11-10", lv: "red", r: "中国 · 美国", ind: ["稀土与新材料", "冶金与能源化工"], cat: "出口管制",
-      t: "中美多项「暂停一年」安排将于 11 月上旬集中到期",
-      s: "商务部、海关总署 2025 年第 70 号公告将第 61、62 号等稀土及相关技术出口管制公告暂停至 2026 年 11 月 10 日；美方 BIS「关联方 50% 规则」暂停至 11 月 9 日，部分 301 关税排除同样到期。到期后是否延长尚无官方消息。",
-      act: "稀土、新材料及对美业务企业立即梳理在手订单与许可状态，按「恢复实施」情景准备许可申请与客户沟通预案。",
-      src: "财联社 / Arnold & Porter", url: "https://www.cls.cn/detail/2197634",
-      more: [["BIS 暂停关联方规则", "https://www.arnoldporter.com/en/perspectives/blogs/enforcement-edge/2025/11/doc-suspends-enforcement-of-the-affiliates-rule-for-one-year"]] },
+    { id: "a-20261110-us-cn", d: "2026-09-28", due: "2027-01-10", lv: "orange", r: "中国 · 美国", ind: ["稀土与新材料", "冶金与能源化工"], cat: "出口管制",
+      t: "中美吉隆坡安排仅延期两个月至 2027 年 1 月 10 日",
+      s: "第八轮中美经贸磋商同意将原定 11 月 10 日到期的联合安排延至 2027 年 1 月 10 日，双方部分关税和非关税措施继续暂停；美方称 BIS「关联方 50% 规则」暂停同步顺延，但截至 9 月底联邦公报正式通知尚未发布。延期期限短，后续走向仍不确定。",
+      act: "稀土、新材料及对美业务企业不要按「长期豁免」排产，留意商务部具体公告与 BIS 联邦公报，1 月前备好许可申请与客户沟通预案。",
+      src: "商务部", url: "https://www.mofcom.gov.cn/syxwfb/art/2026/art_d9ea01824fc44fd8a29f7dc3f8ca9c72.html",
+      more: [["BIS 关联方规则延期解读", "https://www.cmtradelaw.com/2026/09/u-s-china-trade-truce-extended-two-months-bis-affiliates-rule-suspension-follows/"], ["原暂停公告报道", "https://www.cls.cn/detail/2197634"]] },
     { id: "a-20261017-id-halal", d: "2026-10-10", due: "2026-10-17", lv: "red", r: "印度尼西亚", ind: ["乳业与食品", "农牧产品"], cat: "市场准入",
       t: "印尼进口食品饮料强制清真认证 10 月 17 日到期",
       s: "根据印尼 2024 年第 42 号政府条例，进口食品、饮料及屠宰产品须在 2026 年 10 月 17 日前完成清真认证，未认证产品须标注非清真；肉类、乳制品另有专门要求。外国企业须经印尼当地代表申请，可走境外清真证书登记（SHLN）通道。",
@@ -22,11 +22,12 @@ window.FEED = {
       act: "钢铝及化工出口企业尽快提供经核查的实测排放数据，避免进口商按默认值加成计费而转单。",
       src: "European Commission / CBAM Guide", url: "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/price-cbam-certificates_en",
       more: [["Q3 价格解读", "https://cbamguide.com/news/2026-10-05-q3-2026-cbam-certificate-price/"]] },
-    { id: "a-202606-eu-ru", d: "2026-06-15", lv: "orange", r: "欧盟 · 俄罗斯", ind: ["跨境物流与口岸经济", "新能源装备"], cat: "制裁",
-      t: "欧盟对俄制裁持续点名中国企业，第 21 轮方案正在磋商",
-      s: "欧盟第 20 轮对俄制裁将多家中国企业列入清单，6 月 15 日又通过一份「迷你」制裁包新增实体；委员会 6 月 9 日提出的第 21 轮方案仍在成员国间讨论。",
-      act: "对俄贸易与过境物流企业逐单筛查交易对手、银行与船东；涉及欧盟客户的，提前评估次级制裁风险。",
-      src: "Mayer Brown", url: "https://www.mayerbrown.com/de/insights/publications/2026/06/eu-adopts-mini-sanctions-package-against-russia" },
+    { id: "a-202606-eu-ru", d: "2026-07-23", lv: "orange", r: "欧盟 · 俄罗斯", ind: ["跨境物流与口岸经济", "新能源装备"], cat: "制裁",
+      t: "欧盟第 21 轮对俄制裁已通过，14 家中国内地及香港企业被列入",
+      s: "欧盟理事会 7 月 23 日通过第 21 轮方案，新增 51 个两用物项受限实体（含 14 家中国内地及香港企业），另有 33 家俄银行纳入交易禁令；次日商务部将 14 家欧洲实体列入出口管制管控名单反制。",
+      act: "对俄贸易与过境物流企业逐单筛查交易对手、银行与船东；涉及欧盟客户的，提前评估次级制裁与「被转移风险」尽调要求。",
+      src: "Baker McKenzie", url: "https://sanctionsnews.bakermckenzie.com/eu-adopts-21st-russia-sanctions-package/",
+      more: [["中方反制报道", "https://euperspectives.eu/2026/07/china-export-ban-eu-firms-russia-sanctions/"], ["此前「迷你」制裁包", "https://www.mayerbrown.com/de/insights/publications/2026/06/eu-adopts-mini-sanctions-package-against-russia"]] },
     { id: "a-20260724-us301", d: "2026-07-24", lv: "yellow", r: "美国", ind: ["羊绒与纺织", "稀土与新材料", "新能源装备"], cat: "关税",
       t: "美国对中国内地及香港商品加征 12.5% 的新 301 关税",
       s: "美国贸易代表办公室 7 月 23 日公告，对 60 个经济体分别加征 10% 或 12.5% 关税，中国内地与香港适用 12.5%，7 月 24 日生效；2018 年起的原 301 关税继续有效。",
@@ -49,6 +50,8 @@ window.FEED = {
       src: "新华网", url: "https://www.news.cn/fortune/20260412/32df771127694122b919ae49171802d7/c.html" }
   ],
   cases: [
+    { id: "c-au-northern-minerals", d: "2026-10", ok: false, n: "中资关联股东未按期执行澳大利亚剥离令，稀土公司面临被国有化", ind: "稀土与新材料", reg: "澳大利亚", s: "澳财长 5 月下令六家中资关联投资者在 7 月 2 日前出售所持约 17% 的稀土企业 Northern Minerals 股份，投资者逾期大部分未出售、罚款亦未缴；10 月资源部长表示国有化是选项之一。", l: "关键矿产投资受东道国安全审查严格约束，监管命令须按期执行，否则风险会从投资受限升级为资产被处置。", tags: ["外资审查", "关键矿产", "剥离令"], src: "ABC News", url: "https://abc.net.au/news/2026-10-14/federal-politics-resources-minister-open-nationalising-company/107266624" },
+    { id: "c-wingtech-nexperia", d: "2026-09", ok: false, n: "闻泰科技失去荷兰子公司安世控制权，转而依《反外国制裁法》在国内起诉", ind: "电子元器件", reg: "荷兰 · 中国", s: "闻泰旗下安世半导体因荷兰政府干预与当地法院裁定失去表决控制权；闻泰 5 月依《反外国制裁法》起诉安世及三名高管索赔 80 亿元，东莞中院 8 月冻结安世在华子公司股权最高 21.4 亿元，案件尚未开庭。", l: "海外子公司控制权可能因东道国安全审查被剥夺，境外架构、治理安排与境内资产布局需提前设计反制与救济路径。", tags: ["反外国制裁法", "控制权", "财产保全"], src: "The Standard", url: "https://www.thestandard.com.hk/finance/article/341543/Chinese-court-freezes-214-bln-yuan-of-Nexperia-assets-in-Wingtech-case" },
     { id: "c-cietac-saudi", d: "2025-10", ok: true, n: "中国企业在沙特法院执行 CIETAC 仲裁裁决，收回约 4660 万元", ind: "工程与贸易", reg: "沙特", s: "企业依据《纽约公约》向沙特法院申请承认与执行中国国际经济贸易仲裁委员会裁决，最终收回本金、损失及仲裁费用约 2454 万里亚尔。", l: "合同约定国际仲裁 + 《纽约公约》，让「赢了官司拿得到钱」成为可能。", tags: ["仲裁执行", "纽约公约"], src: "德恒律师事务所", url: "https://www.dehenglaw.com/EN/newscontent/0006/035215/2.aspx?MID=0876" },
     { id: "c-afsl-first", d: "2025", ok: true, n: "首例依据《反外国制裁法》提起的侵权诉讼：39 天调解全额回款", ind: "国际贸易", reg: "中国", s: "一家被第三国列入制裁名单的中国企业，因交易对手以制裁为由拒付货款，依据《反外国制裁法》在国内起诉，法院受理后 39 天内调解结案并全额付款。", l: "遭遇「以制裁为由」违约时，国内法律工具已经可用。", tags: ["反外国制裁法", "回款"], src: "China Justice Observer", url: "https://www.chinajusticeobserver.com/a/first-tort-suit-under-china%E2%80%99s-anti-foreign-sanctions-law" },
     { id: "c-bank-209m", d: "2026-02", ok: false, n: "2.09 亿美元仲裁裁决未获履行，中资银行赴美申请冻结资产", ind: "金融", reg: "美国", s: "借款企业违约后，相关商人长期不履行约 2.09 亿美元仲裁裁决并转移至海外，中资银行不得不在美国加州联邦法院申请资产冻结。", l: "跨境授信与交易须提前锁定担保与可执行财产所在地，否则胜诉后追偿漫长。", tags: ["跨境执行", "资产冻结"], src: "Law360", url: "https://www.law360.com/articles/2440304" },
