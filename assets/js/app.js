@@ -36,9 +36,9 @@
   </div>`;
 
   const expertCard = e => `<div class="card hov">
-    <div class="expert"><div class="avatar" ${e.real ? 'style="background:linear-gradient(135deg,#8a6110,#e2bf5c)"' : ""}>${e.ini}</div><div style="flex:1">
+    <div class="expert"><div class="avatar" ${e.real ? 'style="background:linear-gradient(135deg,#8A6E3E,#D2B57E)"' : ""}>${e.ini}</div><div style="flex:1">
       <h3 style="font-size:16.5px">${e.n}${e.real ? ' <span class="tag lock" style="margin:0">法律先生</span>' : DEMO}</h3>
-      <div class="muted" style="font-size:13px">📍 ${e.reg} · ${e.yr} 年经验</div>
+      <div class="muted" style="font-size:13px">📍 ${e.reg}${e.yr && e.yr !== "—" ? ` · ${e.yr} 年经验` : ""}</div>
       ${e.real ? `<div style="font-size:13px;color:var(--gold);font-weight:600">${e.role}</div>` : `<div class="stars">★★★★★ <span class="muted">${e.rate.toFixed(1)}</span></div>`}
     </div></div>
     <div style="margin:12px 0 8px">${e.sp.map(s => `<span class="tag b">${s}</span>`).join("")}</div>
@@ -66,14 +66,14 @@
     let grid = ""; for (let x = 20; x < 760; x += 14) for (let y = 30; y < 340; y += 14) { const lx = x / 760, ly = y / 340; const land = (lx > .1 && lx < .32 && ly > .15 && ly < .55) || (lx > .22 && lx < .32 && ly > .55 && ly < .98) || (lx > .38 && lx < .9 && ly > .12 && ly < .5) || (lx > .4 && lx < .55 && ly > .45 && ly < .92) || (lx > .72 && lx < .82 && ly > .55 && ly < .75) || (lx > .84 && lx < .94 && ly > .82 && ly < .98) || (lx > .6 && lx < .66 && ly > .6 && ly < .76); if (land && (x * 7 + y * 3) % 5) grid += `<circle cx="${x}" cy="${y}" r="1.3"/>`; }
     return `<svg class="globe" viewBox="0 0 760 360" role="img" aria-label="法律先生全球合伙人网络示意">
       <g class="land">${grid}</g><g class="lines">${lines}</g><g class="dots">${dots}</g>
-      <circle cx="${hub[0]}" cy="${hub[1]}" r="18" fill="rgba(226,191,92,.25)"/><circle cx="${hub[0]}" cy="${hub[1]}" r="8" fill="#e2bf5c"/>
+      <circle cx="${hub[0]}" cy="${hub[1]}" r="18" fill="rgba(200,169,110,.25)"/><circle cx="${hub[0]}" cy="${hub[1]}" r="8" fill="#D2B57E"/>
       <text x="${hub[0] + 14}" y="${hub[1] + 22}" class="hub">内蒙古</text></svg>`;
   }
 
   function lexBlock(full, compact) {
     const L = D.lex;
     if (compact) return `<section class="lexsec compact"><div class="wrap">
-      <div class="sh"><div><div class="k" style="color:var(--gold2)">WHY US</div><h2 style="color:#fff">不止海外保障，<em class="gt">更帮你打通市场与上下游</em></h2><p style="color:#93acc9">赵云涛出海律师团队统筹，城市 × 国家 × 专项合伙人一处需求、全网响应。</p></div><a class="more-link" style="color:#e8d18f" href="#/global">全球合伙人体系 →</a></div>
+      <div class="sh"><div><div class="k" style="color:var(--gold2)">WHY US</div><h2 style="color:#fff">不止海外保障，<em class="gt">更帮你打通市场与上下游</em></h2><p style="color:#9DB3A8">赵云涛出海律师团队统筹，城市 × 国家 × 专项合伙人一处需求、全网响应。</p></div><a class="more-link" style="color:#D9C08F" href="#/global">全球合伙人体系 →</a></div>
       <div class="grid3 lexpillars" style="margin-top:0">${L.pillars.map(p => `<div class="lp"><div class="ico">${p.ico}</div><h3>${p.t}</h3><p>${p.d}</p><div>${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></div>`).join("")}</div>
     </div></section>`;
     return `<section class="lexsec"><div class="wrap">
@@ -97,8 +97,9 @@
 
   function centersBlock() {
     return `<div class="grid3">${D.lex.centers.map(c => `<div class="card center" style="padding:0;overflow:hidden">
-      ${c.img ? `<img src="${c.img}" alt="${c.t}" loading="lazy">` : `<div class="noimg">即将成立</div>`}
-      <div style="padding:18px 20px 20px"><div class="muted" style="font-size:12.5px">${c.k}</div><h3 style="font-size:16.5px;margin-top:4px">${c.t}</h3><p>${c.d}</p></div></div>`).join("")}</div>`;
+      ${c.img ? `<img src="${c.img}" alt="${c.t}" loading="lazy">` : `<div class="noimg">${c.ph || "即将成立"}</div>`}
+      <div style="padding:18px 20px 20px"><div class="muted" style="font-size:12.5px;letter-spacing:1px">${c.k}</div><h3 style="font-size:16.5px;margin-top:4px">${c.t}</h3>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin:2px 0 8px;letter-spacing:1px">${c.who}</div><p>${c.d}</p>${c.url ? `<a style="font-size:13px" href="${c.url}" target="_blank" rel="noopener">查看揭牌报道 ↗</a>` : ""}</div></div>`).join("")}</div>`;
   }
 
   function global() {
@@ -155,6 +156,31 @@
     draw();
   }
 
+  /* ---------- 引流：企业出海一线情报 & 资源群 ---------- */
+  const WX = "flxs33";
+  function intelBlock() {
+    return `<div class="intel"><div class="l">
+        <span class="eyebrow">FRONTLINE INTELLIGENCE</span>
+        <h3>企业出海一线情报 <em>&amp;</em> 资源群</h3>
+        <p class="sub">一手情报 · 资源 · 项目 · 避坑。机会在海外，坑也在海外——先看清，再出发。</p>
+        <ul>
+          <li><b>一手情报</b>：每到一国，当天同步机遇、政策与判断</li>
+          <li><b>资源 & 项目对接</b>：园区、律所、商会优先对接，项目群内首发</li>
+          <li><b>每周避坑</b>：一个真实出海案例复盘</li>
+          <li><b>闭门直播</b>：每到一国一场，拆解真实打法</li>
+          <li><b>法律变化速递</b>：讲清「对企业有什么影响」</li>
+          <li><b>研报资料库 & 考察团</b>：会员优先报名</li>
+        </ul>
+      </div><div class="r">
+        <span class="lb">添加 ZOEY 微信入群</span>
+        <div class="wx">${WX}</div>
+        <button class="wxcopy" data-copywx>复制微信号</button>
+        <div class="pr">早鸟 <b>¥399</b>/年<s>¥699</s></div>
+        <p>或微信扫码报名</p>
+        <img class="qr" src="assets/img/qr-intel.png" alt="企业出海一线情报群报名二维码" loading="lazy">
+      </div></div>`;
+  }
+
   /* ---------- 首页 ---------- */
   function heroSVG() {
     const c = [250, 200];
@@ -163,16 +189,16 @@
       const mx = (c[0] + x) / 2, my = (c[1] + y) / 2 - 50;
       return `<path class="arc" d="M${c[0]},${c[1]} Q${mx},${my} ${x},${y}"/>`;
     }).join("");
-    const nodes = pts.map(([n, x, y]) => `<g class="node"><circle class="p" cx="${x}" cy="${y}" r="5" fill="#e2bf5c"/><circle cx="${x}" cy="${y}" r="4.5" fill="#e2bf5c"/>
-      <text x="${x}" y="${y - 11}" text-anchor="middle" fill="#dbe6f3" font-size="13">${n}</text></g>`).join("");
+    const nodes = pts.map(([n, x, y]) => `<g class="node"><circle class="p" cx="${x}" cy="${y}" r="5" fill="#D2B57E"/><circle cx="${x}" cy="${y}" r="4.5" fill="#D2B57E"/>
+      <text x="${x}" y="${y - 11}" text-anchor="middle" fill="#E1E8E3" font-size="13">${n}</text></g>`).join("");
     return `<svg class="routes" viewBox="0 0 500 380" role="img" aria-label="内蒙古出海通道示意">
-      <defs><linearGradient id="gArc" x1="0" x2="1"><stop offset="0" stop-color="#e2bf5c"/><stop offset="1" stop-color="#5fb0ff"/></linearGradient>
-      <radialGradient id="gC"><stop offset="0" stop-color="#e2bf5c" stop-opacity=".55"/><stop offset="1" stop-color="#e2bf5c" stop-opacity="0"/></radialGradient></defs>
+      <defs><linearGradient id="gArc" x1="0" x2="1"><stop offset="0" stop-color="#D2B57E"/><stop offset="1" stop-color="#C8A96E"/></linearGradient>
+      <radialGradient id="gC"><stop offset="0" stop-color="#D2B57E" stop-opacity=".55"/><stop offset="1" stop-color="#D2B57E" stop-opacity="0"/></radialGradient></defs>
       <circle cx="250" cy="200" r="170" fill="none" stroke="rgba(255,255,255,.08)"/><circle cx="250" cy="200" r="110" fill="none" stroke="rgba(255,255,255,.08)"/>
       ${arcs}${nodes}
       <circle cx="250" cy="200" r="46" fill="url(#gC)"/>
-      <circle cx="250" cy="200" r="22" fill="#fff"/><circle cx="250" cy="200" r="16" fill="#0d2540"/>
-      <path d="M241 205c3-7 15-7 18 0" fill="none" stroke="#e2bf5c" stroke-width="2.5" stroke-linecap="round"/><path d="M250 190l4.5 5h-3v4h-3v-4h-3z" fill="#fff"/>
+      <circle cx="250" cy="200" r="22" fill="#fff"/><circle cx="250" cy="200" r="16" fill="#062620"/>
+      <path d="M241 205c3-7 15-7 18 0" fill="none" stroke="#D2B57E" stroke-width="2.5" stroke-linecap="round"/><path d="M250 190l4.5 5h-3v4h-3v-4h-3z" fill="#fff"/>
       <text x="250" y="244" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">内蒙古</text>
     </svg>`;
   }
@@ -184,13 +210,13 @@
       ["⚠️", "避坑指南", "前人踩过的坑，你不必再踩", "#/pitfalls"], ["🗺️", "区域情报", "12 个重点国家与区域", "#/regions"],
       ["📰", "政策与商机", "各地政策变化、项目机会", "#/opps"], ["⚖️", "出海律师", "赵云涛团队与全球合伙人律师", "#/experts"],
       ["📣", "需求广场", "发布需求，精准对接", "#/demand"], ["📚", "调研报告", "国别、行业、合规研究", "#/reports"],
-      ["🩺", "出海体检", "3 分钟测出你的风险点", "#/checkup"], ["🏛️", "政府 · 园区", "区域出海态势看板", "#/gov"]
+      ["🎓", "出海课程", "企业内训、公开课与海外游学", "#/academy"], ["🏛️", "政府 · 园区", "区域出海态势看板", "#/gov"]
     ];
     app.innerHTML = `
     <section class="hero2">
       <div class="h2bg">${globeSVG()}</div><div class="h2glow"></div>
       <div class="wrap">
-        <span class="eyebrow">◆ 赵云涛出海律师团队 × 法律先生全球合伙人体系</span>
+        <span class="eyebrow">INNER MONGOLIA · GO GLOBAL</span>
         <h1>一键，<br><em>联通全世界。</em></h1>
         <div class="next">内蒙古企业的下一站：<b id="rot">乌兰巴托</b><i class="caret"></i></div>
         <p class="lead">35 国、900 余家国际律所、5000 余名海外律师。我们不只为你守住海外的法律底线，更帮你打通市场、打通上下游。</p>
@@ -204,6 +230,8 @@
       ${sh("RISK RADAR", "风险雷达 · 正在发生的变化", `每 3 天自动检索更新 · 最近更新 ${FEED.updated}`, ["全部风险预警", "#/alerts"])}
       <div class="grid2">${alertsSorted().slice(0, 4).map(alertCard).join("")}</div>
     </div></section>
+
+    <section class="sec" style="padding-top:8px"><div class="wrap">${intelBlock()}</div></section>
 
     <div class="kpis kpis2"><div class="wrap"><div class="grid">
       ${D.kpis.map(k => `<div class="kpi"><b>${k.v}<small>${k.u}</small></b><span>${k.t}</span></div>`).join("")}
@@ -397,7 +425,7 @@
     <section class="sec"><div class="wrap"><div class="grid2" style="gap:32px;align-items:start">
       <div>${sh("POLICY WATCH", "政策动态", "每条附原文链接与影响解读（上线后）")}<div class="list">${D.policies.map(policyRow).join("")}</div></div>
       <div>${sh("OPPORTUNITIES", "海外商机", "招标项目、采购需求、合作招募")}<div class="list">${D.opps.map(oppRow).join("")}</div>
-        <div class="card" style="margin-top:16px;background:#fbf7ea;border-color:#ecdcae"><h3>📮 订阅定向推送</h3><p>按国家、行业订阅，政策变化与商机第一时间送达。</p>
+        <div class="card" style="margin-top:16px;background:#F4EFE3;border-color:#DFD0AE"><h3>📮 订阅定向推送</h3><p>按国家、行业订阅，政策变化与商机第一时间送达。</p>
         <button class="btn btn-g btn-sm" style="margin-top:12px" data-subscribe>立即订阅</button></div></div>
     </div></div></section>
     <section class="sec alt"><div class="wrap">
@@ -515,7 +543,7 @@
     app.innerHTML = ph("政府 · 园区", "区域企业出海态势看板", "为自治区及盟市商务部门、开发区、商协会提供数据化的出海服务与决策支持工具。") + `
     <section class="sec"><div class="wrap">
       <div class="dash">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px"><b style="color:#fff;font-size:17px">📡 内蒙古企业出海态势 · 2026 Q3</b><span style="font-size:12px;color:#93acc9">演示数据 · 非真实统计</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px"><b style="color:#fff;font-size:17px">📡 内蒙古企业出海态势 · 2026 Q3</b><span style="font-size:12px;color:#9DB3A8">演示数据 · 非真实统计</span></div>
         <div class="dg">
           ${X.kpi.map(k => `<div class="panel"><h5>${k.t}</h5><div class="big">${k.v}</div><div class="delta">${k.dl}</div></div>`).join("")}
           <div class="panel span2"><h5>需求行业分布</h5>${bars(X.byInd)}</div>
@@ -592,6 +620,27 @@
     </div></div></section>`;
   }
 
+  /* ---------- 出海课程 ---------- */
+  function academy() {
+    const C = D.academy;
+    app.innerHTML = ph("出海课程", "企业出海课程 · 出海学院", "由法律先生全球合伙人与一线实战律师授课：看懂规则、算清风险、找到资源。面向企业老板、高管与出海团队，可定制企业内训与政府园区专场。") + `
+    <section class="sec"><div class="wrap">
+      ${sh("CURRICULUM", "六大课程模块", "从「要不要出去、去哪里」到「怎么落地、怎么守住」，覆盖出海全周期。")}
+      <div class="grid3">${C.modules.map((m, i) => `<div class="card course"><div class="no">0${i + 1}</div><h3 style="margin-top:10px">${m.t}</h3><p>${m.d}</p><ul>${m.l.map(x => `<li>${x}</li>`).join("")}</ul><div class="meta">适合：${m.who}</div></div>`).join("")}</div>
+    </div></section>
+    <section class="sec alt"><div class="wrap">
+      ${sh("FORMATS", "四种参与方式", "")}
+      <div class="grid4">${C.formats.map(f => `<div class="format"><h4>${f.t}</h4><p>${f.d}</p></div>`).join("")}</div>
+      <div class="grid3" style="margin-top:36px">${C.why.map(w => `<div class="card"><h3>${w[0]}</h3><p>${w[1]}</p></div>`).join("")}</div>
+    </div></section>
+    <section class="sec"><div class="wrap"><div class="grid2 split">
+      <div>${sh("ENROLL", "预约课程 · 企业内训意向", "首期课程筹备中。留下信息，开课前优先通知，并可为贵企业或园区定制专场。")}
+        <div class="list">${C.faq.map(q => `<div class="row"><div><h4>${q[0]}</h4><p>${q[1]}</p></div></div>`).join("")}</div></div>
+      <div class="card" id="enroll">${leadForm("预约出海课程", "我们将在 1 个工作日内与您联系。", `<div><label>参与方式</label><select name="fmt">${C.formats.map(f => `<option>${f.t}</option>`).join("")}</select></div><div><label>预计人数</label><select name="size"><option>1–5 人</option><option>6–20 人</option><option>21–50 人</option><option>50 人以上</option></select></div><div class="full"><label>关注模块（可多选）</label><div class="opts">${C.modules.map(m => `<label class="opt" style="font-weight:400"><input type="checkbox" name="mod" value="${m.t}" style="width:auto;margin-right:4px">${m.t}</label>`).join("")}</div></div>`)}</div>
+    </div></div></section>
+    <section class="sec" style="padding-top:0"><div class="wrap">${intelBlock()}</div></section>`;
+  }
+
   /* ---------- 弹窗与交互 ---------- */
   function modal(html) { $("#mbody").innerHTML = html; $("#mask").classList.add("on"); }
   function closeModal() { $("#mask").classList.remove("on"); }
@@ -608,11 +657,11 @@
   function openJoin() { modal(leadForm("服务商入驻申请", "律师事务所、会计师事务所、认证机构、物流与咨询机构均可申请。", `<div class="full"><label>机构类型</label><select name="type"><option>律师事务所</option><option>财税机构</option><option>认证机构</option><option>物流服务商</option><option>咨询机构</option></select></div><div class="full"><label>服务国家/地区</label><input name="area" placeholder="如：蒙古国、哈萨克斯坦"></div>`)); }
 
   document.addEventListener("click", e => {
-    const t = e.target.closest("[data-connect],[data-team],[data-partner],[data-lock],[data-report],[data-consult],[data-contact],[data-plan],[data-join],[data-match],[data-subscribe],[data-close]");
+    const t = e.target.closest("[data-intel],[data-copywx],[data-connect],[data-team],[data-partner],[data-lock],[data-report],[data-consult],[data-contact],[data-plan],[data-join],[data-match],[data-subscribe],[data-close]");
     if (!t) { if (e.target === $("#mask")) closeModal(); return; }
     const d = t.dataset;
     if ("close" in d) return closeModal();
-    if ("lock" in d) return modal(`<div class="ico" style="background:#2a1d00;color:#f3d98a">🔒</div><h3>${d.lock}</h3><p class="muted">该内容为会员专享。开通企业会员即可解锁全部深度内容、国别情报与商机联系方式。</p>
+    if ("lock" in d) return modal(`<div class="ico" style="background:#06201a;color:#E6CF9F">🔒</div><h3>${d.lock}</h3><p class="muted">该内容为会员专享。开通企业会员即可解锁全部深度内容、国别情报与商机联系方式。</p>
       <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><a class="btn btn-g" href="#/membership">查看会员方案</a><button class="btn btn-o" data-plan="试用">申请 7 天免费试用</button></div>`);
     if ("report" in d) return +d.price ? modal(`<h3>${d.report}</h3><p class="muted">单篇购买 <b class="price">¥${(+d.price).toLocaleString()}</b>，或开通会员免费阅读。</p>
       <div class="grid2" style="margin-top:16px"><button class="btn btn-p" style="justify-content:center" data-plan="购买报告">单篇购买</button><a class="btn btn-g" style="justify-content:center" href="#/membership">开通会员</a></div><p class="note">原型演示：支付功能将在正式版接入微信支付 / 对公转账。</p>`)
@@ -621,6 +670,10 @@
     if ("contact" in d) return modal(leadForm("联系我们", "政府合作、媒体、投稿、定制研究等事宜。"));
     if ("plan" in d) return modal(leadForm(d.plan === "试用" ? "申请 7 天免费试用" : "开通：" + d.plan, "顾问将与您联系，确认方案并开具发票。"));
     if ("join" in d) return openJoin();
+    if ("intel" in d) return modal(`<span class="eyebrow" style="color:var(--gold)">FRONTLINE INTELLIGENCE</span><h3 style="margin-top:10px">企业出海一线情报 &amp; 资源群</h3><p class="muted">一手情报 · 资源 · 项目 · 避坑。每周一早报、周三避坑案例、每到一国一场闭门直播。</p>
+      <div style="text-align:center;margin-top:18px;padding:22px;background:var(--ivory);border:1px solid var(--line);border-radius:4px"><div style="font-size:12px;letter-spacing:3px;color:var(--gold)">添加 ZOEY 微信入群</div><div style="font-family:var(--serif);font-size:34px;color:var(--forest);margin:6px 0">${WX}</div><button class="wxcopy" data-copywx>复制微信号</button>
+      <div style="margin-top:12px">早鸟 <b style="font-family:var(--serif);font-size:22px">¥399</b>/年 <s class="muted">¥699</s></div><img src="assets/img/qr-intel.png" alt="报名二维码" style="width:130px;margin-top:10px;border:1px solid var(--line);padding:6px;background:#fff"><div class="muted" style="font-size:12.5px">或微信扫码报名</div></div>`);
+    if ("copywx" in d) { try { navigator.clipboard.writeText(WX); } catch (e) {} return toast("已复制微信号 " + WX + "，打开微信添加 Zoey"); }
     if ("connect" in d) return modal(leadForm("🌐 一键联通全球合伙人", "告诉我们你要去哪里、要解决什么。赵云涛律师团队统筹，对应国家合伙人与专项合伙人 1 个工作日内响应。",
       `<div><label>目标国家/地区</label><select name="area">${D.regions.map(r => `<option>${r.n}</option>`).join("")}<option>其他国家</option></select></div>
        <div><label>所属行业</label><select name="ind">${D.industries.map(i => `<option>${i.n}</option>`).join("")}</select></div>
@@ -643,7 +696,7 @@
   function reveal() { if (!io) return; $$("#app .card:not(.rv),#app .mod:not(.rv),#app .step:not(.rv),#app .lp:not(.rv),#app .alert:not(.rv),#app .sh:not(.rv)").forEach((el, i) => { el.classList.add("rv"); el.style.transitionDelay = (i % 4) * 60 + "ms"; io.observe(el); }); }
 
   /* ---------- 路由 ---------- */
-  const routes = { "": home, global, alerts, status, cases, compliance, pitfalls, regions, opps, experts, demand, reports, membership, gov, checkup, search };
+  const routes = { "": home, global, alerts, academy, status, cases, compliance, pitfalls, regions, opps, experts, demand, reports, membership, gov, checkup, search };
   function route() {
     const h = location.hash.replace(/^#\/?/, "");
     const [pathAnchor, query = ""] = h.split("?");
@@ -654,7 +707,7 @@
     $("#nav").classList.remove("open"); closeModal();
     if (anchor) setTimeout(() => { const el = document.getElementById(anchor); el && el.scrollIntoView({ behavior: "smooth" }); }, 30);
     else window.scrollTo(0, 0);
-    const titles = { global: "全球合伙人", status: "出海现状", cases: "案例库", compliance: "合规指南", pitfalls: "避坑指南", regions: "区域情报", opps: "政策与商机", experts: "出海律师", alerts: "风险预警", demand: "需求广场", reports: "调研报告", membership: "会员服务", gov: "政府 · 园区", checkup: "出海体检", search: "搜索" };
+    const titles = { academy: "出海课程", global: "全球合伙人", status: "出海现状", cases: "案例库", compliance: "合规指南", pitfalls: "避坑指南", regions: "区域情报", opps: "政策与商机", experts: "出海律师", alerts: "风险预警", demand: "需求广场", reports: "调研报告", membership: "会员服务", gov: "政府 · 园区", checkup: "出海体检", search: "搜索" };
     document.title = (titles[path] ? titles[path] + " · " : "") + "内蒙古企业出海一站通";
   }
   addEventListener("hashchange", route);
