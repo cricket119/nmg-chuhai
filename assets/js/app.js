@@ -203,7 +203,7 @@
   /* ---------- 平台价值 ---------- */
   function value() {
     const V = D.value;
-    app.innerHTML = ph("平台价值", "内蒙古企业出海一站通能做什么", "让出海，更有安全感。以「五个一」体系服务企业、服务政府、服务向北开放。") + `
+    app.innerHTML = ph("平台价值", "内蒙古企业出海一站通能做什么", "让出海，更便捷，也更有保障。以「五个一」体系服务企业、服务政府、服务向北开放。") + `
     <section class="sec"><div class="wrap">
       ${sh("FIVE PILLARS", "「五个一」服务体系", "")}
       <div class="five">${V.five.map((f, i) => `<div class="fv"><div class="no">0${i + 1}</div><div class="k">${f.k}</div><h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}</div>
@@ -266,13 +266,13 @@
     app.innerHTML = `
     <section class="hero5"><div class="wrap">
       <span class="pill-eye"><i></i>法律先生 · 内蒙古企业出海一站通</span>
-      <h1>让出海，<br><em>更有安全感。</em></h1>
+      <h1>让出海，更便捷，<br><em>也更有保障。</em></h1>
       <p class="lead">从合规到市场，从风险预警到属地落地——赵云涛律师团队联合法律先生全球合伙人，陪内蒙古企业走好出海的每一步。</p>
       <div class="cta"><button class="btn btn-p btn-lg" data-connect>一键联通全球合伙人</button><a class="btn btn-o btn-lg" href="#/value">了解平台价值</a></div>
       <div class="trust"><span><b>35</b> 个国家</span><span><b>900+</b> 国际律所</span><span><b>5000+</b> 海外律师</span><span><b>10</b> 个海外及城市中心</span></div>
       <div class="stage">
         <div class="stage-bg">${globeSVG()}</div>
-        <div class="bubble b1"><small>一键联通</small>内蒙古企业 → 蒙古国中心 · 钱昆团队</div>
+        <div class="bubble b1"><small>一键联通</small>内蒙古企业 → 内蒙古中心 · 赵云涛出海团队</div>
         <div class="bubble b2"><small>风险雷达 · 每 3 天更新</small>${alertsSorted()[0].t}</div>
         <div class="bubble b3"><small>下一站</small><b id="rot">乌兰巴托</b></div>
         ${tickerHTML()}

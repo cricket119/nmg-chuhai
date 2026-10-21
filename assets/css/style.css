@@ -828,3 +828,4 @@ section.sec.alt{background:transparent}
 .lexlogo{width:44px;height:44px;border-radius:10px;object-fit:cover;flex:none;display:block}
 .logo b{font-family:inherit;font-weight:600;font-size:17px;letter-spacing:.5px}
 .flogo .lexlogo{width:48px;height:48px}
+.hero5 h1{font-size:clamp(38px,7vw,92px)}
