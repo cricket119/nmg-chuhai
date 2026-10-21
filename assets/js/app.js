@@ -299,15 +299,9 @@
       ${sh("RESEARCH", "调研报告", "国别研究、行业研究、合规专题，帮助企业与政府做出更好的决策。", ["报告中心", "#/reports"])}
       <div class="grid4">${D.reports.slice(0, 4).map(reportCard).join("")}</div>
     </div></section>
-    <section class="sec" style="padding-top:8px"><div class="wrap">${intelBlock()}</div></section>
 
-    ${teamBlock(false)}
 
     ${lexBlock(false, true)}
-    <section class="sec alt"><div class="wrap">
-      ${sh("GLOBAL CENTERS", "法律先生海外服务中心", "蒙古国中心已在乌兰巴托落地——内蒙古企业赴蒙，第一站就有人接应。", ["全球合伙人体系", "#/global"])}
-      ${centersBlock()}
-    </div></section>
 
 
     <div class="kpis kpis2"><div class="wrap"><div class="grid">
@@ -357,7 +351,17 @@
     <section class="sec" style="padding-top:0"><div class="wrap">
       <div class="band"><div><h3>盟市商务部门、开发区与商协会</h3><p>一块看板掌握辖区企业出海态势、需求与风险，为精准施策提供数据支撑。</p></div>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-w" href="#/gov">查看政府看板</a><a class="btn btn-ghost" href="javascript:void(0)" data-contact>洽谈合作</a></div></div>
-    </div></section>`;
+    </div></section>
+
+    ${teamBlock(false)}
+
+    <section class="sec"><div class="wrap">
+      ${sh("GLOBAL CENTERS", "法律先生海外服务中心", "蒙古国中心已在乌兰巴托落地——内蒙古企业赴蒙，第一站就有人接应。", ["全球合伙人体系", "#/global"])}
+      ${centersBlock()}
+    </div></section>
+
+    <section class="sec" style="padding-top:0"><div class="wrap">${intelBlock()}</div></section>
+`;
     const cities = ["乌兰巴托", "莫斯科", "阿斯塔纳", "塔什干", "利雅得", "迪拜", "雅加达", "胡志明市", "布鲁塞尔", "布达佩斯", "圣保罗"]; let ci = 0;
     clearInterval(window.__rot); window.__rot = setInterval(() => { const el = $("#rot"); if (!el) return clearInterval(window.__rot); ci = (ci + 1) % cities.length; el.classList.remove("in"); void el.offsetWidth; el.textContent = cities[ci]; el.classList.add("in"); }, 2200);
     $("#hsearch").onsubmit = e => { e.preventDefault(); const q = e.target.querySelector("input").value.trim(); location.hash = "#/search?q=" + encodeURIComponent(q); };
