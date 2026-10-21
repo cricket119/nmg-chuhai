@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <title>出海先生 MR. CHUHAI</title>
+  <!-- 菱形外框（呼应法律先生） -->
+  <path d="M60 5 115 60 60 115 5 60Z" stroke-width="3.2"/>
+  <path d="M60 13 107 60 60 107 13 60Z" stroke-width="1.2" opacity=".55"/>
+  <!-- 双翼：三道羽线 -->
+  <g stroke-width="3.4">
+    <path d="M44 50H19"/><path d="M44 58H23"/><path d="M44 66H28"/>
+    <path d="M76 50h25"/><path d="M76 58h21"/><path d="M76 66h16"/>
+  </g>
+  <!-- 礼帽 -->
+  <path d="M47 33h26" stroke-width="3.4"/>
+  <path d="M53 20h14v6H53Z" fill="currentColor" stroke-width="2"/>
+  <path d="M53 29h14v3H53Z" fill="currentColor" stroke-width="2"/>
+  <!-- 帆：先生之身即一叶帆 -->
+  <path d="M60 39v40" stroke-width="2.4"/>
+  <path d="M62.5 42 79 77H62.5Z" fill="currentColor" stroke-width="1.6"/>
+  <path d="M57.5 49v28H44Z" stroke-width="2.2"/>
+  <!-- 船身 -->
+  <path d="M41 81h38l-6 8H47Z" fill="currentColor" stroke-width="1.6"/>
+  <!-- 海浪 -->
+  <path d="M46 96c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 5-2.5 7.5 0 5 2.5 6 0" stroke-width="2.2"/>
+</svg>

@@ -181,6 +181,57 @@
       </div></div>`;
   }
 
+  /* ---------- 赵云涛律师团队 ---------- */
+  function teamBlock(full) {
+    const T = D.team;
+    return `<section class="sec teamsec"><div class="wrap"><div class="team">
+      <div class="tl5">
+        <div class="lb">本地核心团队 · ${T.org}</div>
+        <h2>赵云涛律师团队</h2>
+        <p>${T.intro}</p>
+        <div class="areas">${T.areas.map(a => `<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join("")}</div>
+        <div class="cta" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><button class="btn btn-p" data-connect>联系赵云涛律师团队</button>${full ? "" : `<a class="btn btn-o" href="#/experts">查看团队详情</a>`}</div>
+      </div>
+      <div class="tr5">
+        ${T.members.map(m => `<div class="mem"><div class="avatar">${m.n[0]}</div><div><h3>${m.n}</h3><div class="r">${m.r}</div>${full ? `<ul>${m.b.map(x => `<li>${x}</li>`).join("")}</ul>` : `<div class="f">${m.f}</div>`}</div></div>`).join("")}
+      </div>
+    </div>
+    ${full ? `<div class="grid2" style="margin-top:20px"><div class="card"><div class="lb">代表业绩 · 涉外及跨境</div><ul class="rec">${T.record.map(x => `<li>${x}</li>`).join("")}</ul></div><div class="card"><div class="lb">常年法律顾问（部分）</div><p style="margin-top:8px">${T.clients}</p></div></div>` : `<div class="rec-line"><span class="lb">代表业绩</span>${T.record.slice(0, 2).map(x => `<span>${x}</span>`).join("")}</div>`}
+    </div></section>`;
+  }
+
+  /* ---------- 平台价值 ---------- */
+  function value() {
+    const V = D.value;
+    app.innerHTML = ph("平台价值", "出海先生 · 内蒙古企业出海一站通能做什么", "让出海，更有安全感。以「五个一」体系服务企业、服务政府、服务向北开放。") + `
+    <section class="sec"><div class="wrap">
+      ${sh("FIVE PILLARS", "「五个一」服务体系", "")}
+      <div class="five">${V.five.map((f, i) => `<div class="fv"><div class="no">0${i + 1}</div><div class="k">${f.k}</div><h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}</div>
+    </div></section>
+    <section class="sec alt"><div class="wrap"><div class="grid2">
+      <div>${sh("FOR ENTERPRISES", "对企业：出海全周期陪跑", "")}<div class="list">${V.forEnt.map(x => `<div class="row"><div><h4>${x[0]}</h4><p>${x[1]}</p></div></div>`).join("")}</div></div>
+      <div>${sh("FOR GOVERNMENT", "对政府：可感知、可衡量的开放抓手", "")}<div class="list">${V.forGov.map(x => `<div class="row"><div><h4>${x[0]}</h4><p>${x[1]}</p></div></div>`).join("")}</div></div>
+    </div></div></section>
+    <section class="sec"><div class="wrap">
+      ${sh("ALREADY ON THE GROUND", "不是从零开始：已有的基础", "")}
+      <div class="grid3">
+        <div class="card"><div class="lb">本地团队</div><h3>赵云涛律师团队</h3><p>已为二连浩特驿信建设投资集团、昊罡果蔬粮油进出口园区等企业完成赴蒙设立子公司、海外仓等境外投资全流程法律服务。</p></div>
+        <div class="card"><div class="lb">海外中心</div><h3>蒙古国 · 老挝 · 欧洲</h3><p>法律先生蒙古国中心（钱昆团队）扎根乌兰巴托，老挝中心（谷良琪团队）2026 年 10 月在万象揭牌，并有西班牙、法国、德国中心。</p></div>
+        <div class="card"><div class="lb">全球网络</div><h3>35 国 · 900+ 律所</h3><p>法律先生全球合伙人体系：城市 × 国家 × 专项合伙人联动，一处需求、全网响应。</p></div>
+      </div>
+    </div></section>
+    <section class="sec alt"><div class="wrap">
+      ${sh("PATH", "建议推进路径", "")}
+      <div class="flow">
+        <div class="step"><h4>试点启动</h4><p>选取 2–3 个重点盟市或口岸园区，开通企业出海服务专区与政府看板。</p></div>
+        <div class="step"><h4>企业服务</h4><p>组织出海体检、合规培训与国别对接会，形成首批服务案例。</p></div>
+        <div class="step"><h4>集体出海</h4><p>依托蒙古国、老挝等海外中心组织考察与项目对接。</p></div>
+        <div class="step"><h4>品牌发布</h4><p>联合发布《内蒙古企业出海年度报告》，复制推广至全区。</p></div>
+      </div>
+      <div class="band" style="margin-top:32px"><div><h3>政府 · 园区合作洽谈</h3><p>为您的地区定制一份出海服务方案与态势分析样本。</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-w" data-contact>预约汇报</button><a class="btn btn-ghost" href="#/gov">查看政府看板</a></div></div>
+    </div></section>`;
+  }
+
   /* ---------- 首页 ---------- */
   function heroSVG() {
     const c = [250, 200];
@@ -213,18 +264,33 @@
       ["🎓", "出海课程", "企业内训、公开课与海外游学", "#/academy"], ["🏛️", "政府 · 园区", "区域出海态势看板", "#/gov"]
     ];
     app.innerHTML = `
-    <section class="hero2">
-      <div class="h2bg">${globeSVG()}</div><div class="h2glow"></div>
-      <div class="wrap">
-        <span class="eyebrow">INNER MONGOLIA · GO GLOBAL</span>
-        <h1>一键，<br><em>联通全世界。</em></h1>
-        <div class="next">内蒙古企业的下一站：<b id="rot">乌兰巴托</b><i class="caret"></i></div>
-        <p class="lead">35 国、900 余家国际律所、5000 余名海外律师。我们不只为你守住海外的法律底线，更帮你打通市场、打通上下游。</p>
-        <div class="cta"><button class="btn btn-g btn-lg" data-connect>🌐 一键联通全球合伙人</button><a class="btn btn-ghost btn-lg" href="#/alerts">⚠️ 查看最新风险预警</a></div>
-        <div class="glass">${D.lex.stats.map(k => `<div><b data-count="${k.v}">${k.v}<small>${k.u}</small></b><span>${k.t}</span></div>`).join("")}</div>
+    <section class="hero5"><div class="wrap">
+      <span class="pill-eye"><i></i>出海先生 · 内蒙古企业出海一站通</span>
+      <h1>让出海，<br><em>更有安全感。</em></h1>
+      <p class="lead">从合规到市场，从风险预警到属地落地——赵云涛律师团队联合法律先生全球合伙人，陪内蒙古企业走好出海的每一步。</p>
+      <div class="cta"><button class="btn btn-p btn-lg" data-connect>一键联通全球合伙人</button><a class="btn btn-o btn-lg" href="#/value">了解平台价值</a></div>
+      <div class="trust"><span><b>35</b> 个国家</span><span><b>900+</b> 国际律所</span><span><b>5000+</b> 海外律师</span><span><b>10</b> 个海外及城市中心</span></div>
+      <div class="stage">
+        <div class="stage-bg">${globeSVG()}</div>
+        <div class="bubble b1"><small>一键联通</small>内蒙古企业 → 蒙古国中心 · 钱昆团队</div>
+        <div class="bubble b2"><small>风险雷达 · 每 3 天更新</small>${alertsSorted()[0].t}</div>
+        <div class="bubble b3"><small>下一站</small><b id="rot">乌兰巴托</b></div>
+        ${tickerHTML()}
       </div>
-      ${tickerHTML()}
-    </section>
+    </div></section>
+
+    <div class="slogans"><div class="sl-tr">${[...D.value.slogans, ...D.value.slogans].map(x => `<span>${x}</span>`).join("")}</div></div>
+
+    <section class="sec"><div class="wrap">
+      ${sh("WHY IT MATTERS", "这个平台，能为内蒙古做什么", "以「五个一」体系，把分散的出海信息、资源与服务整合为可持续运转的公共服务能力。", ["查看平台价值全文", "#/value"])}
+      <div class="five">${D.value.five.map((f, i) => `<div class="fv"><div class="no">0${i + 1}</div><div class="k">${f.k}</div><h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}</div>
+      <div class="grid2" style="margin-top:22px">
+        <div class="card soft"><div class="lb">对企业</div>${D.value.forEnt.map(x => `<div class="vrow"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>
+        <div class="card soft"><div class="lb">对政府</div>${D.value.forGov.map(x => `<div class="vrow"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>
+      </div>
+    </div></section>
+
+    ${teamBlock(false)}
 
     <section class="sec radar"><div class="wrap">
       ${sh("RISK RADAR", "风险雷达 · 正在发生的变化", `每 3 天自动检索更新 · 最近更新 ${FEED.updated}`, ["全部风险预警", "#/alerts"])}
@@ -438,11 +504,9 @@
   function experts(qs) {
     const types = [...new Set(D.experts.map(e => e.type))];
     app.innerHTML = ph("出海律师", "出海律师 · 赵云涛律师团队与全球合伙人", "依托法律先生 35 国、900 余家国际律所网络，按国家、语言、专业领域精准匹配。首次咨询会员享 30 分钟免费。") + `
-    <section class="sec"><div class="wrap">
-      <div class="teamcard"><div><div class="k" style="color:var(--gold2);font-size:12.5px;letter-spacing:2px;font-weight:700">LEAD COUNSEL</div><h2>赵云涛律师团队</h2>
-        <p>统筹法律先生全球合伙人体系，为内蒙古企业出海提供「法律保障 + 市场开拓 + 上下游对接」一体化服务。</p>
-        <p class="pending">团队简介、执业背景与代表业绩待补充</p></div>
-        <div style="display:flex;flex-direction:column;gap:10px"><button class="btn btn-g" data-connect>🌐 一键联通</button><a class="btn btn-ghost" href="#/global">全球合伙人体系</a></div></div>
+    <section class="sec" style="padding:0"><div class="wrap">
+    </div></section>${teamBlock(true)}<section class="sec" style="padding-top:0"><div class="wrap">
+      <div class="sh"><div><div class="k">GLOBAL PARTNERS</div><h2>全球合伙人团队</h2></div></div>
       <div class="filters"><button class="chip on" data-ty="">全部</button>${types.map(t => `<button class="chip" data-ty="${t}">${t}</button>`).join("")}<span class="sp"></span><input id="eq" placeholder="搜索国家或领域，如：蒙古 / CBAM"></div>
       <div class="grid3" id="elist"></div>
       <div class="grid3" style="margin-top:28px">
@@ -497,7 +561,7 @@
       mine.unshift({ t: f.t, kind: f.kind, reg: f.reg, ind: f.ind, who: f.anon ? "某内蒙古企业（匿名）" : f.who, d: new Date().toISOString().slice(0, 10), mine: true });
       store.set("demands", mine); e.target.reset(); draw();
       modal(`<h3>✅ 需求已提交</h3><p>平台顾问将在 48 小时内与您联系，并推送匹配的服务商与合作伙伴。</p>
-        <p class="note">原型演示：数据仅保存在本机浏览器。正式版接入后台与短信通知。</p>
+        <p class="note">如需更快响应，可直接添加顾问微信 <b>${WX}</b> 或发邮件至 lexmagister@126.com。</p>
         <div style="margin-top:16px"><b>你可能还需要</b><div style="margin-top:8px"><a class="tag b" href="#/experts">${f.reg} 律师</a><a class="tag b" href="#/regions">${f.reg} 国别情报</a><a class="tag b" href="#/checkup">出海体检</a></div></div>`);
     };
     draw();
@@ -652,7 +716,7 @@
       <div class="full"><label>单位名称 *</label><input name="org" required></div>
       <div class="full"><label>说明</label><textarea name="msg" style="min-height:80px"></textarea></div>
       <div class="full"><button class="btn btn-p" style="width:100%;justify-content:center">提交</button></div></form>
-    <p class="note">原型演示：提交后仅保存在本机浏览器，正式版接入 CRM 与短信通知。</p>`;
+    <p class="note">提交后顾问将尽快联系您；也可直接添加微信 <b>${WX}</b>。</p>`;
 
   function openJoin() { modal(leadForm("服务商入驻申请", "律师事务所、会计师事务所、认证机构、物流与咨询机构均可申请。", `<div class="full"><label>机构类型</label><select name="type"><option>律师事务所</option><option>财税机构</option><option>认证机构</option><option>物流服务商</option><option>咨询机构</option></select></div><div class="full"><label>服务国家/地区</label><input name="area" placeholder="如：蒙古国、哈萨克斯坦"></div>`)); }
 
@@ -664,7 +728,7 @@
     if ("lock" in d) return modal(`<div class="ico" style="background:#06201a;color:#E6CF9F">🔒</div><h3>${d.lock}</h3><p class="muted">该内容为会员专享。开通企业会员即可解锁全部深度内容、国别情报与商机联系方式。</p>
       <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><a class="btn btn-g" href="#/membership">查看会员方案</a><button class="btn btn-o" data-plan="试用">申请 7 天免费试用</button></div>`);
     if ("report" in d) return +d.price ? modal(`<h3>${d.report}</h3><p class="muted">单篇购买 <b class="price">¥${(+d.price).toLocaleString()}</b>，或开通会员免费阅读。</p>
-      <div class="grid2" style="margin-top:16px"><button class="btn btn-p" style="justify-content:center" data-plan="购买报告">单篇购买</button><a class="btn btn-g" style="justify-content:center" href="#/membership">开通会员</a></div><p class="note">原型演示：支付功能将在正式版接入微信支付 / 对公转账。</p>`)
+      <div class="grid2" style="margin-top:16px"><button class="btn btn-p" style="justify-content:center" data-plan="购买报告">单篇购买</button><a class="btn btn-g" style="justify-content:center" href="#/membership">开通会员</a></div><p class="note">支持对公转账与开具发票，下单后顾问将与您确认。</p>`)
       : modal(leadForm("免费下载：" + d.report, "留下联系方式，报告将发送至您的手机/邮箱。"));
     if ("consult" in d) return modal(leadForm("预约：" + d.consult, "平台顾问将在 1 个工作日内与您确认需求与时间。"));
     if ("contact" in d) return modal(leadForm("联系我们", "政府合作、媒体、投稿、定制研究等事宜。"));
@@ -678,7 +742,7 @@
       `<div><label>目标国家/地区</label><select name="area">${D.regions.map(r => `<option>${r.n}</option>`).join("")}<option>其他国家</option></select></div>
        <div><label>所属行业</label><select name="ind">${D.industries.map(i => `<option>${i.n}</option>`).join("")}</select></div>
        <div class="full"><label>需要什么（可多选）</label><div class="opts">${["海外法律保障", "找客户/渠道", "上下游对接", "投资设厂落地", "合同与争议", "海外考察"].map(x => `<label class="opt" style="font-weight:400"><input type="checkbox" name="need" value="${x}" style="width:auto;margin-right:4px">${x}</label>`).join("")}</div></div>`));
-    if ("team" in d) return modal(`<h3>赵云涛律师团队</h3><p class="muted">统筹法律先生全球合伙人体系，服务内蒙古企业出海。</p><p class="pending">团队简介、执业背景、代表业绩与团队成员待补充。</p><button class="btn btn-g" data-connect style="margin-top:12px">🌐 一键联通</button>`);
+    if ("team" in d) { location.hash = "#/experts"; return; }
     if ("partner" in d) return modal(leadForm("申请内蒙古城市合伙人", "全球席位制，每个盟市限额招募。提交后法律先生团队将与您双向沟通。", `<div class="full"><label>意向盟市</label><select name="city">${D.dash.byCity.map(c => `<option>${c[0]}</option>`).join("")}</select></div>`));
     if ("match" in d) return modal(leadForm("我能对接：" + d.match, "说明您能提供的资源或服务，平台将协助双方建立联系。"));
     if ("subscribe" in d) return modal(leadForm("订阅定向推送", "选择关注的国家与行业。", `<div class="full"><label>关注国家/地区</label><input name="area" placeholder="如：蒙古国、沙特"></div>`));
@@ -686,7 +750,11 @@
   document.addEventListener("submit", e => {
     if (!e.target.matches("[data-lead]")) return;
     e.preventDefault(); const leads = store.get("leads", []); leads.push({ ...Object.fromEntries(new FormData(e.target)), at: Date.now() }); store.set("leads", leads);
-    closeModal(); toast("✅ 提交成功，我们会尽快与您联系");
+    const f = Object.fromEntries(new FormData(e.target)), title = (e.target.closest(".modal,.card") || document).querySelector("h3")?.textContent || "网站咨询";
+    const body = Object.entries(f).map(([k, v]) => `${k}: ${v}`).join("\n");
+    modal(`<h3>✅ 提交成功</h3><p class="muted">顾问将尽快与您联系。为确保及时响应，建议同时：</p>
+      <div class="list" style="margin-top:14px"><div class="row"><div><h4>添加顾问微信</h4><p><b style="font-size:18px;color:var(--ink)">${WX}</b> <button class="wxcopy" data-copywx>复制</button></p></div></div>
+      <a class="row" style="color:inherit" href="mailto:lexmagister@126.com?subject=${encodeURIComponent("【出海先生】" + title)}&body=${encodeURIComponent(body)}"><div><h4>一键发送邮件</h4><p>将本次填写内容发送至 lexmagister@126.com →</p></div></a></div>`);
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
   $("#burger").onclick = () => $("#nav").classList.toggle("open");
@@ -696,7 +764,7 @@
   function reveal() { if (!io) return; $$("#app .card:not(.rv),#app .mod:not(.rv),#app .step:not(.rv),#app .lp:not(.rv),#app .alert:not(.rv),#app .sh:not(.rv)").forEach((el, i) => { el.classList.add("rv"); el.style.transitionDelay = (i % 4) * 60 + "ms"; io.observe(el); }); }
 
   /* ---------- 路由 ---------- */
-  const routes = { "": home, global, alerts, academy, status, cases, compliance, pitfalls, regions, opps, experts, demand, reports, membership, gov, checkup, search };
+  const routes = { "": home, value, global, alerts, academy, status, cases, compliance, pitfalls, regions, opps, experts, demand, reports, membership, gov, checkup, search };
   function route() {
     const h = location.hash.replace(/^#\/?/, "");
     const [pathAnchor, query = ""] = h.split("?");
@@ -707,8 +775,8 @@
     $("#nav").classList.remove("open"); closeModal();
     if (anchor) setTimeout(() => { const el = document.getElementById(anchor); el && el.scrollIntoView({ behavior: "smooth" }); }, 30);
     else window.scrollTo(0, 0);
-    const titles = { academy: "出海课程", global: "全球合伙人", status: "出海现状", cases: "案例库", compliance: "合规指南", pitfalls: "避坑指南", regions: "区域情报", opps: "政策与商机", experts: "出海律师", alerts: "风险预警", demand: "需求广场", reports: "调研报告", membership: "会员服务", gov: "政府 · 园区", checkup: "出海体检", search: "搜索" };
-    document.title = (titles[path] ? titles[path] + " · " : "") + "内蒙古企业出海一站通";
+    const titles = { value: "平台价值", academy: "出海课程", global: "全球合伙人", status: "出海现状", cases: "案例库", compliance: "合规指南", pitfalls: "避坑指南", regions: "区域情报", opps: "政策与商机", experts: "出海律师", alerts: "风险预警", demand: "需求广场", reports: "调研报告", membership: "会员服务", gov: "政府 · 园区", checkup: "出海体检", search: "搜索" };
+    document.title = (titles[path] ? titles[path] + " · " : "") + "出海先生 · 内蒙古企业出海一站通";
   }
   addEventListener("hashchange", route);
   route();
