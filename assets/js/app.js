@@ -104,7 +104,7 @@
 
   function global() {
     const L = D.lex;
-    app.innerHTML = ph("全球合伙人", "赵云涛律师团队 · 法律先生全球合伙人体系", "全世界每一个国家 × 中国每一个城市 × 专项业务场景。一处需求，全网响应。") + lexBlock(true) + `
+    app.innerHTML = ph("全球合伙人", "赵云涛律师团队 · 法律先生全球合伙人体系", "全世界每一个国家 × 中国每一个城市 × 专项业务场景。一处需求，全网响应。") + teamBlock(false) + lexBlock(true) + `
     <section class="sec"><div class="wrap">
       ${sh("HOW IT WORKS", "一键联通，如何运转", "不是「找一位当地律师引荐就完事」，而是围绕企业出海持续协同的全球网络。")}
       <div class="flow">${L.flow.map(f => `<div class="step"><div class="muted" style="font-size:11.5px;letter-spacing:1.5px">${f[0]}</div><h4>${f[1]}</h4><p>${f[2]}</p></div>`).join("")}</div>
@@ -203,7 +203,7 @@
   /* ---------- 平台价值 ---------- */
   function value() {
     const V = D.value;
-    app.innerHTML = ph("平台价值", "出海先生 · 内蒙古企业出海一站通能做什么", "让出海，更有安全感。以「五个一」体系服务企业、服务政府、服务向北开放。") + `
+    app.innerHTML = ph("平台价值", "内蒙古企业出海一站通能做什么", "让出海，更有安全感。以「五个一」体系服务企业、服务政府、服务向北开放。") + `
     <section class="sec"><div class="wrap">
       ${sh("FIVE PILLARS", "「五个一」服务体系", "")}
       <div class="five">${V.five.map((f, i) => `<div class="fv"><div class="no">0${i + 1}</div><div class="k">${f.k}</div><h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}</div>
@@ -265,7 +265,7 @@
     ];
     app.innerHTML = `
     <section class="hero5"><div class="wrap">
-      <span class="pill-eye"><i></i>出海先生 · 内蒙古企业出海一站通</span>
+      <span class="pill-eye"><i></i>法律先生 · 内蒙古企业出海一站通</span>
       <h1>让出海，<br><em>更有安全感。</em></h1>
       <p class="lead">从合规到市场，从风险预警到属地落地——赵云涛律师团队联合法律先生全球合伙人，陪内蒙古企业走好出海的每一步。</p>
       <div class="cta"><button class="btn btn-p btn-lg" data-connect>一键联通全球合伙人</button><a class="btn btn-o btn-lg" href="#/value">了解平台价值</a></div>
@@ -290,14 +290,25 @@
       </div>
     </div></section>
 
-    ${teamBlock(false)}
-
     <section class="sec radar"><div class="wrap">
       ${sh("RISK RADAR", "风险雷达 · 正在发生的变化", `每 3 天自动检索更新 · 最近更新 ${FEED.updated}`, ["全部风险预警", "#/alerts"])}
       <div class="grid2">${alertsSorted().slice(0, 4).map(alertCard).join("")}</div>
     </div></section>
 
+    <section class="sec"><div class="wrap">
+      ${sh("RESEARCH", "调研报告", "国别研究、行业研究、合规专题，帮助企业与政府做出更好的决策。", ["报告中心", "#/reports"])}
+      <div class="grid4">${D.reports.slice(0, 4).map(reportCard).join("")}</div>
+    </div></section>
     <section class="sec" style="padding-top:8px"><div class="wrap">${intelBlock()}</div></section>
+
+    ${teamBlock(false)}
+
+    ${lexBlock(false, true)}
+    <section class="sec alt"><div class="wrap">
+      ${sh("GLOBAL CENTERS", "法律先生海外服务中心", "蒙古国中心已在乌兰巴托落地——内蒙古企业赴蒙，第一站就有人接应。", ["全球合伙人体系", "#/global"])}
+      ${centersBlock()}
+    </div></section>
+
 
     <div class="kpis kpis2"><div class="wrap"><div class="grid">
       ${D.kpis.map(k => `<div class="kpi"><b>${k.v}<small>${k.u}</small></b><span>${k.t}</span></div>`).join("")}
@@ -308,7 +319,6 @@
       <div class="hot" style="text-align:center">热门：<a href="#/regions">蒙古国投资</a><a href="#/compliance?g=esg">欧盟 CBAM</a><a href="#/compliance?g=export">稀土出口管制</a><a href="#/compliance?g=fx">对俄结算</a><a href="#/alerts">印尼清真认证</a></div>
     </div></section>
 
-    ${lexBlock(false, true)}
 
     <section class="sec"><div class="wrap">
       ${sh("ONE-STOP SERVICES", "一站式出海服务矩阵", "从「看清方向」到「落地护航」，覆盖企业出海全周期的 12 个核心板块。")}
@@ -342,15 +352,7 @@
       </div>
     </div></section>
 
-    <section class="sec alt"><div class="wrap">
-      ${sh("GLOBAL CENTERS", "法律先生海外服务中心", "蒙古国中心已在乌兰巴托落地——内蒙古企业赴蒙，第一站就有人接应。", ["全球合伙人体系", "#/global"])}
-      ${centersBlock()}
-    </div></section>
 
-    <section class="sec"><div class="wrap">
-      ${sh("RESEARCH", "调研报告", "国别研究、行业研究、合规专题，帮助企业与政府做出更好的决策。", ["报告中心", "#/reports"])}
-      <div class="grid4">${D.reports.slice(0, 4).map(reportCard).join("")}</div>
-    </div></section>
 
     <section class="sec" style="padding-top:0"><div class="wrap">
       <div class="band"><div><h3>盟市商务部门、开发区与商协会</h3><p>一块看板掌握辖区企业出海态势、需求与风险，为精准施策提供数据支撑。</p></div>
@@ -754,7 +756,7 @@
     const body = Object.entries(f).map(([k, v]) => `${k}: ${v}`).join("\n");
     modal(`<h3>✅ 提交成功</h3><p class="muted">顾问将尽快与您联系。为确保及时响应，建议同时：</p>
       <div class="list" style="margin-top:14px"><div class="row"><div><h4>添加顾问微信</h4><p><b style="font-size:18px;color:var(--ink)">${WX}</b> <button class="wxcopy" data-copywx>复制</button></p></div></div>
-      <a class="row" style="color:inherit" href="mailto:lexmagister@126.com?subject=${encodeURIComponent("【出海先生】" + title)}&body=${encodeURIComponent(body)}"><div><h4>一键发送邮件</h4><p>将本次填写内容发送至 lexmagister@126.com →</p></div></a></div>`);
+      <a class="row" style="color:inherit" href="mailto:lexmagister@126.com?subject=${encodeURIComponent("【出海一站通】" + title)}&body=${encodeURIComponent(body)}"><div><h4>一键发送邮件</h4><p>将本次填写内容发送至 lexmagister@126.com →</p></div></a></div>`);
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
   $("#burger").onclick = () => $("#nav").classList.toggle("open");
@@ -776,7 +778,7 @@
     if (anchor) setTimeout(() => { const el = document.getElementById(anchor); el && el.scrollIntoView({ behavior: "smooth" }); }, 30);
     else window.scrollTo(0, 0);
     const titles = { value: "平台价值", academy: "出海课程", global: "全球合伙人", status: "出海现状", cases: "案例库", compliance: "合规指南", pitfalls: "避坑指南", regions: "区域情报", opps: "政策与商机", experts: "出海律师", alerts: "风险预警", demand: "需求广场", reports: "调研报告", membership: "会员服务", gov: "政府 · 园区", checkup: "出海体检", search: "搜索" };
-    document.title = (titles[path] ? titles[path] + " · " : "") + "出海先生 · 内蒙古企业出海一站通";
+    document.title = (titles[path] ? titles[path] + " · " : "") + "内蒙古企业出海一站通 · 法律先生";
   }
   addEventListener("hashchange", route);
   route();
